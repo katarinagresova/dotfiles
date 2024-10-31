@@ -15,9 +15,12 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+# Enable Bash eternal history.
+export HISTFILESIZE=
+export HISTSIZE=
+export HISTTIMEFORMAT="[%F %T] "
+export HISTFILE=~/.bash_eternal_history
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
